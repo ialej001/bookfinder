@@ -4,6 +4,7 @@ import { Book } from "../../models/book";
 import { BookResults } from "../BookResults/BookResults";
 import Search from "../Search/Search";
 
+// logical & stateful component for all book related content
 const Books = () => {
   const [searchTerms, setSearchTerms] = useState<string>("");
   const [books, setBooks] = useState<Book[]>([]);
