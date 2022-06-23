@@ -14,6 +14,7 @@ export const BookCard = (book: Book) => {
         </h4>
         <p>By: {authors}</p>
         <p>Publisher: {book.publisher}</p>
+        <button>More Information</button>
       </div>
     </div>
   );
