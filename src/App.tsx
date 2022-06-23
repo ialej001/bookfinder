@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Books from "./components/Books/Books";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Books />
+      
+      {/* <div className="booksContainer">
+        {results.length > 0 &&
+          results.map((result, index) => {
+            return (
+              <BookCard
+                key={index}
+                title={result.title}
+                authors={result.authors}
+                publisher={result.publisher}
+                imgUrl={result.imgUrl}
+              />
+            );
+          })}
+      </div> */}
     </div>
   );
 }
