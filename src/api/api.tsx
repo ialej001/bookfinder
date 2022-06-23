@@ -33,14 +33,14 @@ export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
           results.push({
             authors: item.volumeInfo.authors,
             title: item.volumeInfo.title,
-            publisher: item.volumeInfo.publisher,
+            publisher: item.volumeInfo.publisher ?? "No publisher listed",
             imgUrl: item.volumeInfo.imageLinks
           });
         } else {
           results.push({
             authors: item.volumeInfo.authors,
             title: item.volumeInfo.title,
-            publisher: item.volumeInfo.publisher,
+            publisher: item.volumeInfo.publisher ?? "No publisher listed",
             imgUrl: { smallThumbnail: "", thumbnail: "" }
           });
         }
