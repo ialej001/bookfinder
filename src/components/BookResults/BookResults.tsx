@@ -1,6 +1,7 @@
 import React from "react";
 import { Book } from "../../models/book";
 import { BookCard } from "../BookCard/BookCard";
+import './BookResults.css'
 
 interface Props {
   books: Book[];
