@@ -1,0 +1,21 @@
+.searchArea {
+  display: inline;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.searchArea input {
+  border-radius: 1rem;
+  /* margin: 20px auto; */
+  margin-top: 20px;
+  margin-right: 20px;
+  padding-left: 10px;
+}
+
+.searchArea button:hover {
+  cursor: pointer;
+}
+
+.searchArea button i {
+  margin-right: 5px;
+}
