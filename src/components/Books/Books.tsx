@@ -22,8 +22,8 @@ const Books = () => {
 
   return (
     <div>
-      <Search handleSearch={handleSearchInput} searchBook={searchBook} />
-      <BookResults books={books} error={error} />
+      <Search handleSearch={handleSearchInput} searchBook={searchBook} error={error}/>
+      <BookResults books={books} />
     </div>
   );
 };
