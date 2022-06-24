@@ -1,19 +1,24 @@
 import React from "react";
 import "./Search.css";
 interface Props {
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  searchBook: (e: React.FormEvent) => void;
+  handleSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBookLookup: (e: React.FormEvent) => void;
   error: string;
 }
 
-export const Search = ({ handleSearch, searchBook, error }: Props) => {
+export const Search = ({
+  handleSearchInputChange,
+  handleBookLookup,
+  error
+}: Props) => {
   return (
     <div className="searchArea">
-      <form onSubmit={e => searchBook(e)} action="">
+      <form onSubmit={e => handleBookLookup(e)} action="">
         <input
           type="text"
           placeholder="Search by title"
-          onChange={e => handleSearch(e)}
+          onChange={e => handleSearchInputChange(e)}
+          name="searchInput"
         />
         <button type="submit">
           <i className="fas fa-search"></i>Search

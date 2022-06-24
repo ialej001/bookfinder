@@ -15,14 +15,18 @@ const Books = () => {
     setSearchTerms(e.target.value);
   };
 
-  const searchBook = (e: React.FormEvent) => {
+  const handleBookLookup = (e: React.FormEvent) => {
     e.preventDefault();
     searchApi({ searchTerms, setBooks, setError });
   };
 
   return (
     <div>
-      <Search handleSearch={handleSearchInput} searchBook={searchBook} error={error}/>
+      <Search
+        handleSearchInputChange={handleSearchInput}
+        handleBookLookup={handleBookLookup}
+        error={error}
+      />
       <BookResults books={books} />
     </div>
   );
