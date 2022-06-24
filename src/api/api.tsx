@@ -8,7 +8,10 @@ interface Props {
 }
 
 export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
-  if (searchTerms === "") return;
+  if (searchTerms === "") {
+    setError("Search field must not be empty");
+    return;
+  }
 
   const string = parameterizeSearch(searchTerms);
   let results: Book[] = [];
