@@ -24,6 +24,9 @@ BookFinder is a small website that consumes the Google Books API.
 
 ## Available Scripts
 
+Before executing any scripts, you must obtain an API key from [Google](https://console.cloud.google.com/apis/dashboard).\
+Then you must create an .env file and place your key in there assigned to `REACT_APP_GOOGLEBOOKS_API_KEY`
+
 In the project directory, you can run:
 
 ### `npm start`
