@@ -1,10 +1,15 @@
 .booksContainer {
-    margin-top: 25px;
-    padding: 25px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 20px;
-    box-sizing: border-box;
-    text-align: center;
-  }
+  margin-top: 25px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
 
+.error {
+  color: red;
+  text-align: center;
+  font-size: large;
+}

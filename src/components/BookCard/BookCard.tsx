@@ -1,9 +1,8 @@
 import React from "react";
 import { Book } from "../../models/book";
-import "./BookCard.css"
+import "./BookCard.css";
 
 export const BookCard = (book: Book) => {
-
   const authors = book.authors ? book.authors.join(", ") : "";
   return (
     <div className="card">

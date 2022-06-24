@@ -52,7 +52,7 @@ export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
       });
     })
 
-    .catch(() => setError("Invalid search parameters"));
+    .catch(() => setError("An error occurred processing your request."));
 };
 
 function parameterizeSearch(string: string) {

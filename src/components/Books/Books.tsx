@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { searchApi } from "../../api/api";
 import { Book } from "../../models/book";
 import { BookResults } from "../BookResults/BookResults";
-import Search from "../Search/Search";
+import { Search } from "../Search/Search";
 
 // logical & stateful component for all book related content
 const Books = () => {
@@ -13,17 +13,17 @@ const Books = () => {
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerms(e.target.value);
-  }
+  };
 
   const searchBook = (e: React.FormEvent) => {
     e.preventDefault();
-    searchApi({searchTerms, setBooks, setError})
-  }
+    searchApi({ searchTerms, setBooks, setError });
+  };
 
   return (
     <div>
-      <Search handleSearch={handleSearchInput} searchBook={searchBook}/>
-      <BookResults books={books} error={error}/>
+      <Search handleSearch={handleSearchInput} searchBook={searchBook} />
+      <BookResults books={books} error={error} />
     </div>
   );
 };

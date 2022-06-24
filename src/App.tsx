@@ -8,21 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <Books />
-      
-      {/* <div className="booksContainer">
-        {results.length > 0 &&
-          results.map((result, index) => {
-            return (
-              <BookCard
-                key={index}
-                title={result.title}
-                authors={result.authors}
-                publisher={result.publisher}
-                imgUrl={result.imgUrl}
-              />
-            );
-          })}
-      </div> */}
     </div>
   );
 }

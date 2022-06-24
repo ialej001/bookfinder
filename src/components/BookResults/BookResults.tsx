@@ -1,7 +1,7 @@
 import React from "react";
 import { Book } from "../../models/book";
 import { BookCard } from "../BookCard/BookCard";
-import './BookResults.css'
+import "./BookResults.css";
 
 interface Props {
   books: Book[];
@@ -25,7 +25,7 @@ export const BookResults = ({ books, error }: Props) => {
             );
           })}
       </div>
-      <div></div>
+      <div className="error">{error !== "" && <p>{error}</p>}</div>
     </>
   );
 };

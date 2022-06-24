@@ -1,14 +1,14 @@
 import React from "react";
-import './Search.css'
+import "./Search.css";
 interface Props {
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
   searchBook: (e: React.FormEvent) => void;
 }
 
-const Search = ({ handleSearch, searchBook }: Props) => {
+export const Search = ({ handleSearch, searchBook }: Props) => {
   return (
     <div className="searchArea">
-      <form onSubmit={(e) => searchBook(e)} action="">
+      <form onSubmit={e => searchBook(e)} action="">
         <input
           type="text"
           placeholder="Search by title"
@@ -21,5 +21,3 @@ const Search = ({ handleSearch, searchBook }: Props) => {
     </div>
   );
 };
-
-export default Search;
