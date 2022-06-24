@@ -10,6 +10,7 @@ interface Props {
 export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
   if (searchTerms === "") {
     setError("Search field must not be empty");
+    setBooks([]);
     return;
   }
 
