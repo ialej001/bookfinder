@@ -16,7 +16,7 @@ export const Search = ({
       <form onSubmit={e => handleBookLookup(e)} action="">
         <input
           type="text"
-          placeholder="Search by title"
+          placeholder="Search books"
           onChange={e => handleSearchInputChange(e)}
           name="searchInput"
         />
