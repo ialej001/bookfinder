@@ -5,14 +5,19 @@ interface Props {
   searchTerms: string;
   setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
   setError: React.Dispatch<React.SetStateAction<string>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
+export const searchApi = async ({ searchTerms, setBooks, setError, setIsLoading }: Props) => {
   if (searchTerms === "") {
     setError("Search field must not be empty");
     setBooks([]);
     return;
   }
+
+  // set our loading indicator and clear results
+  setIsLoading(true);
+  setBooks([]);
 
   const string = parameterizeSearch(searchTerms);
   let results: Book[] = [];
@@ -52,8 +57,9 @@ export const searchApi = async ({ searchTerms, setBooks, setError }: Props) => {
         setError("");
       });
     })
-
     .catch(() => setError("An error occurred processing your request."));
+
+    setIsLoading(false);
 };
 
 function parameterizeSearch(string: string) {

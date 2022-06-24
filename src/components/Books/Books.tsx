@@ -9,6 +9,7 @@ const Books = () => {
   const [searchTerms, setSearchTerms] = useState<string>("");
   const [books, setBooks] = useState<Book[]>([]);
   const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Books = () => {
 
   const handleBookLookup = (e: React.FormEvent) => {
     e.preventDefault();
-    searchApi({ searchTerms, setBooks, setError });
+    searchApi({ searchTerms, setBooks, setError, setIsLoading });
   };
 
   return (
@@ -27,7 +28,7 @@ const Books = () => {
         handleBookLookup={handleBookLookup}
         error={error}
       />
-      <BookResults books={books} />
+      <BookResults books={books} isLoading={isLoading}/>
     </div>
   );
 };
