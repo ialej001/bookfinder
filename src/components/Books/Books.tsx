@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { searchApi } from "../../api/api";
 import { Book } from "../../models/book";
+import BookDetailModal from "../BookDetailModal/BookDetailModal";
 import { BookResults } from "../BookResults/BookResults";
 import { Search } from "../Search/Search";
 
@@ -10,6 +11,8 @@ const Books = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [modalBook, setModalBook] = useState<Book>();
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -21,6 +24,14 @@ const Books = () => {
     searchApi({ searchTerms, setBooks, setError, setIsLoading });
   };
 
+  const handleModalToggle = () => {
+    setShowModal(showModal => !showModal);
+  };
+
+  const handleModalContent = (index: number) => {
+    setModalBook(books[index]);
+  };
+
   return (
     <div>
       <Search
@@ -28,7 +39,13 @@ const Books = () => {
         handleBookLookup={handleBookLookup}
         error={error}
       />
-      <BookResults books={books} isLoading={isLoading}/>
+      <BookDetailModal onClose={handleModalToggle} showModal={showModal} book={modalBook}/>
+      <BookResults
+        books={books}
+        isLoading={isLoading}
+        showModal={handleModalToggle}
+        setModalContent={handleModalContent}
+      />
     </div>
   );
 };

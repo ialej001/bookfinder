@@ -6,9 +6,11 @@ import "./BookResults.css";
 interface Props {
   books: Book[];
   isLoading: boolean;
+  showModal: () => void;
+  setModalContent: (index: number) => void;
 }
 
-export const BookResults = ({ books, isLoading }: Props) => {
+export const BookResults = ({ books, isLoading, showModal, setModalContent }: Props) => {
   return (
     <>
       {isLoading && <div className="lds-dual-ring"></div>}
@@ -21,7 +23,10 @@ export const BookResults = ({ books, isLoading }: Props) => {
                 title={result.title}
                 authors={result.authors}
                 publisher={result.publisher}
-                imgUrl={result.imgUrl}
+                imgUrl={result.imgUrl.smallThumbnail}
+                index={index}
+                showModal={showModal}
+                setModalContent={setModalContent}
               />
             );
           })}
