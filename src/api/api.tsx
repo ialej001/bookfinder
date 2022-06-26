@@ -43,16 +43,23 @@ export const searchApi = async ({ searchTerms, setBooks, setError, setIsLoading 
             authors: item.volumeInfo.authors,
             title: item.volumeInfo.title,
             publisher: item.volumeInfo.publisher ?? "No publisher listed",
-            imgUrl: item.volumeInfo.imageLinks
+            publishedDate: item.volumeInfo.publishedDate ?? "",
+            imgUrl: item.volumeInfo.imageLinks ?? { smallThumbnail: "", thumbnail: "" },
+            subtitle: item.volumeInfo.subtitle ?? "",
+            isbn: item.volumeInfo.industryIdentifiers ?? [],
+            description: item.volumeInfo.description ?? "",
+            pageCount: item.volumeInfo.pageCount ?? 0,
+            averageRating: item.volumeInfo.averageRating ?? 0,
+            ratingCount: item.volumeInfo.ratingCount ?? 0
           });
-        } else {
-          results.push({
-            authors: item.volumeInfo.authors,
-            title: item.volumeInfo.title,
-            publisher: item.volumeInfo.publisher ?? "No publisher listed",
-            imgUrl: { smallThumbnail: "", thumbnail: "" }
-          });
-        }
+         } // else {
+        //   results.push({
+        //     authors: item.volumeInfo.authors,
+        //     title: item.volumeInfo.title,
+        //     publisher: item.volumeInfo.publisher ?? "No publisher listed",
+        //     imgUrl: { smallThumbnail: "", thumbnail: "" }
+        //   });
+        // }
         setBooks(results);
         setError("");
       });
